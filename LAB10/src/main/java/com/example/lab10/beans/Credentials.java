@@ -1,6 +1,8 @@
 package com.example.lab10.beans;
 
-public class Credentials {
+import com.example.lab10.daos.DaoBase;
+
+public class Credentials  {
     private String numeroDocumento;
     private int tipoUsuario;
 
