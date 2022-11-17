@@ -1,5 +1,6 @@
 package com.example.lab10.servlet;
 
+import com.example.lab10.daos.DaoCliente;
 import jakarta.servlet.*;
 import jakarta.servlet.http.*;
 import jakarta.servlet.annotation.*;
@@ -19,6 +20,18 @@ public class ServletAdmin extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
+        String action = request.getParameter("action");
+        DaoCliente daoCliente = new DaoCliente();
+        RequestDispatcher requestDispatcher;
+        switch (action){
+            case "create":
+                String nroDoc = request.getParameter("doc");
+                String password = request.getParameter("password");
+                if(nroDoc!=null && password!=null){
+                    daoCliente.createCredentials(nroDoc,password);
+                }
+                response.sendRedirect(request.getContextPath() + "/ServletAdmin");
+                break;
+        }
     }
 }
