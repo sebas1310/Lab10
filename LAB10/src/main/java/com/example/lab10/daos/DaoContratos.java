@@ -25,21 +25,12 @@ public class DaoContratos extends DaoBase{
             while (rs.next()) {
 
                 contrato.setNroDeContrato(rs.getString(1));
-                contrato.setIdCliente(rs.getInt(2));
-                contrato.setDivisa(rs.getInt(3));
+                contrato.setIdCliente(rs.getString(2));
+                contrato.setDivisa(rs.getString(3));
                 contrato.setEstado(rs.getInt(4));
                 contrato.setMesesEnEseEstado(rs.getInt(5));
-
-                //
-                //if (rs.getInt(4) == 0) {
-                //  contrato.setEstado("Normal");
-                //} else if (rs.getInt(4) == 1){
-                //   contrato.setEstado("Cura");
-                //}else{
-                //    contrato.setEstado("Mora");
-                }
-                //
                 listaContratos.add(contrato);
+                }
 
         } catch (SQLException throwables) {
             throwables.printStackTrace();
